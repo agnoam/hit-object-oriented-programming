@@ -1,0 +1,28 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "C/C++: g++.exe build and debug active file",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [ // <--- Environment variables for the debug session
+                {
+                    "name": "PATH",
+                    "value": "C:\\msys64\\ucrt64\\bin;${env:PATH}" // Prioritize your MinGW bin for runtime
+                },
+                {
+                    "name": "LD_LIBRARY_PATH", // On Linux/macOS this is common, less so Windows
+                    "value": "C:\\msys64\\ucrt64\\bin"
+                }
+            ],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:\\msys64\\ucrt64\\bin\\gdb.exe",
+            "preLaunchTask": "C/C++: g++.exe build active file"
+        }
+    ]
+}
